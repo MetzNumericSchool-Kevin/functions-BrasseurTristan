@@ -14,4 +14,12 @@ const inventaire = [
 ];
 
 
-function Welcome(name) { return `Salutations Aventurier ! Je me nomme ${name} pour vous servir.` };
+function welcome(name) { return `Salutations Aventurier ! Je me nomme ${name} pour vous servir.` };
+alert(`${welcome(nom_sorcier)}`);
+
+function potion_price(id, inventory, quantity = 1) {
+    price = inventory.find(o => o.id === id);
+    return price.prix * quantity;
+}
+console.log(potion_price("potion_soin", inventaire, 3));
+
