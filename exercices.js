@@ -36,15 +36,27 @@ function potion_creation(id, price = 10, quantity = 1) {
 //console.log(potion_creation("potion_endurance"));
 
 function add_potion(inventory, potion) {
-    if (inventory.find(o => o.id === potion.id) === undefined) {
+    price = inventory.find(o => o.id === potion.id);
+    if (price === undefined) {
         inventory.push(potion);
     } else {
-        price = inventory.find(o => o.id === potion.id);
         price.prix = potion.prix;
         price.stock += potion.stock;
     }
     return inventory.sort((a, b) => b.prix - a.prix);
 }
 add_potion(inventaire, potion_creation("potion_mana", 20, 3))
+add_potion(inventaire, potion_creation("potion_mana", 40, 9))
+
 console.log(add_potion(inventaire, potion_creation("potion_endu")))
 
+function search_potion() {
+    return inventaire.filter((elm) => elm.stock > 0);
+}
+
+function search_empty_stock() {
+    return inventaire.filter((elm) => elm.stock == 0);
+}
+console.log(search_potion());
+console.log(search_empty_stock());
+console.log(inventaire);
