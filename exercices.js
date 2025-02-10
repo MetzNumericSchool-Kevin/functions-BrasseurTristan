@@ -23,3 +23,13 @@ function potion_price(id, inventory, quantity = 1) {
 }
 console.log(potion_price("potion_soin", inventaire, 3));
 
+function potion_creation(id, price = 10, quantity = 1) {
+    new_potion = {
+        id: id,
+        prix: price,
+        stock: quantity
+    };
+    return `Nouvelle potion créée : ${new_potion.id} | prix : ${new_potion.prix} | stock : ${new_potion.stock}`;
+}
+console.log(potion_creation("potion_mana", 20, 3));
+console.log(potion_creation("potion_endurance"));
